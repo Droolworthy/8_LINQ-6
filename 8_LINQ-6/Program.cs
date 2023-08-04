@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,7 +30,7 @@ namespace LINQ6
             string commandShowSoldierData = "1";
             string commandExit = "2";
 
-            Console.WriteLine("Получить набор данных солдат - " + commandShowSoldierData); 
+            Console.WriteLine("Получить набор данных солдат - " + commandShowSoldierData);
             Console.WriteLine("Выход - " + commandExit);
 
             while (isWork)
@@ -38,23 +38,27 @@ namespace LINQ6
                 Console.Write("\nВвод: ");
                 string userInput = Console.ReadLine();
 
-                if(userInput == commandShowSoldierData)
+                if (userInput == commandShowSoldierData)
                 {
-                    var newSoldiers = _soldiers.Select(soldier => new { soldier.Name, soldier.Title } );
+                    var newSoldiers = _soldiers.Select(soldier => new
+                    {
+                        soldier.Name,
+                        soldier.Title
+                    });
 
                     foreach (var soldier in newSoldiers)
                     {
                         Console.WriteLine($"Имя - {soldier.Name}, Звание - {soldier.Title}");
                     }
                 }
-                else if(userInput == commandExit)
+                else if (userInput == commandExit)
                 {
                     isWork = false;
                 }
                 else
                 {
                     Console.WriteLine("Ошибка. Попробуйте ещё раз.");
-                }                
+                }
             }
         }
 
